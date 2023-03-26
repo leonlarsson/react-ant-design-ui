@@ -1,0 +1,9 @@
+.navLink {
+  text-decoration-line: none;
+}
+
+@media screen and (max-width: 450px) {
+  #headerTitle {
+    display: none;
+  }
+}
