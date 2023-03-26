@@ -4,6 +4,8 @@ This is simply a template website UI using [React](https://react.dev/) (with [Re
 
 This example includes basic scaffolding, with example demos using state and various features. [Faker](https://fakerjs.dev/) is used to generate data.
 
+# [Demo](https://react-ant-design-ui.pages.dev/) (Cloudflare Pages)
+
 ## Running a dev server
 
 To run a dev server, clone the project, run `npm i`, and then `npm run dev`.
