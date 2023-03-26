@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "antd";
-import "../../public/assets/css/Nav.css";
+import "../styles/Nav.css";
 
 const Nav = ({ antdMenuTheme }) => {
 

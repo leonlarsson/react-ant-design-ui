@@ -4,7 +4,6 @@ import { Button, Checkbox, Divider, Drawer, Layout, Space, Typography } from "an
 import { handleHeaderThemeChange, handleMenuThemeChange, handleGlobalAntdThemeChange } from "../utils/handleThemeChanges";
 import { ThemeContext } from "../App";
 import Nav from "./Nav";
-import logo from "../assets/images/logo.png";
 
 const LayoutComponent = () => {
 
@@ -26,7 +25,7 @@ const LayoutComponent = () => {
             <Layout.Header style={{ display: "flex", justifyContent: "space-between", paddingLeft: 10, paddingRight: 10, backgroundColor: antdThemeHeader === "dark" ? "#001529" : "white" }}>
 
                 <Link to="/" style={{ display: "flex", alignItems: "center", textDecorationLine: "none", userSelect: "none" }} >
-                    <img src={logo} className="me-2" alt="Brand Logo" width={40} />
+                    <img src="/assets/images/logo.png" className="me-2" alt="Brand Logo" width={40} />
                     {/* Depending on your brand name length, you might want to change the max-width in Nav.css */}
                     <Typography.Text strong id="headerTitle" style={{ fontSize: 25, color: antdThemeHeader === "dark" ? "white" : "black" }}>Brand Name</Typography.Text>
                 </Link>

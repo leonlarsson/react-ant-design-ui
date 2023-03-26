@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { ConfigProvider, theme } from "antd";
 import Layout from "./components/Layout";
-import "../public/assets/css/App.css";
+import "./styles/App.css";
 
 export const ThemeContext = createContext();
 
@@ -17,6 +17,5 @@ const App = () => {
         </ThemeContext.Provider>
     );
 };
-
 
 export default App;
