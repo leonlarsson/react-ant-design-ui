@@ -7,11 +7,16 @@ export const ThemeContext = createContext();
 
 const App = () => {
 
-    const [globalAntdTheme, setGlobalAntdTheme] = useState(localStorage.getItem("globalAntdTheme"));
+    let themeSettings;
+    try {
+        themeSettings = JSON.parse(localStorage.getItem("themeSettings"));
+    } catch {
+        themeSettings = {};
+    }
 
     return (
-        <ThemeContext.Provider value={setGlobalAntdTheme}>
-            <ConfigProvider theme={{ algorithm: globalAntdTheme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
+        <ThemeContext.Provider value={useState(themeSettings)}>
+            <ConfigProvider theme={{ algorithm: themeSettings?.globalTheme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
                 <Layout />
             </ConfigProvider>
         </ThemeContext.Provider>

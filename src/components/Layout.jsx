@@ -7,42 +7,34 @@ import ThemeSettings from "./ThemeSettings";
 
 const LayoutComponent = () => {
 
+    const [themeSettings] = useContext(ThemeContext);
     const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
     const [userDrawerOpen, setUserDrawerOpen] = useState(false);
-    const [antdThemeHeader, setAntdThemeHeader] = useState(localStorage.getItem("antdThemeHeader"));
-    const [antdThemeMenu, setAntdThemeMenu] = useState(localStorage.getItem("antdThemeMenu"));
-    const setGlobalAntdTheme = useContext(ThemeContext);
-
-    window.addEventListener("storage", () => {
-        setAntdThemeHeader(localStorage.getItem("antdThemeHeader"));
-        setAntdThemeMenu(localStorage.getItem("antdThemeMenu"));
-        setGlobalAntdTheme(localStorage.getItem("globalAntdTheme"));
-    });
 
     return (
         <Layout style={{ height: "100vh" }}>
 
-            <Layout.Header style={{ display: "flex", justifyContent: "space-between", paddingLeft: 10, paddingRight: 10, backgroundColor: antdThemeHeader === "dark" ? "#001529" : "white" }}>
+            <Layout.Header style={{ display: "flex", justifyContent: "space-between", paddingLeft: 10, paddingRight: 10, backgroundColor: themeSettings?.headerTheme === "dark" ? "#001529" : "white" }}>
 
                 <Link to="/" style={{ display: "flex", alignItems: "center", textDecorationLine: "none", userSelect: "none" }} >
                     <img src="/assets/images/logo.png" className="me-2" alt="Brand Logo" width={40} />
                     {/* Depending on your brand name length, you might want to change the max-width in Nav.css */}
-                    <Typography.Text strong id="headerTitle" style={{ fontSize: 25, color: antdThemeHeader === "dark" ? "white" : "black" }}>Brand Name</Typography.Text>
+                    <Typography.Text strong id="headerTitle" style={{ fontSize: 25, color: themeSettings?.headerTheme === "dark" ? "white" : "black" }}>Brand Name</Typography.Text>
                 </Link>
 
                 <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                    <i className="fa-solid fa-cog fa-2xl" style={{ marginRight: 10, cursor: "pointer", color: antdThemeHeader === "dark" ? "white" : "black" }} onClick={() => setSettingsDrawerOpen(true)} />
+                    <i className="fa-solid fa-cog fa-2xl" style={{ marginRight: 10, cursor: "pointer", color: themeSettings?.headerTheme === "dark" ? "white" : "black" }} onClick={() => setSettingsDrawerOpen(true)} />
                     <div style={{ display: "flex", flexDirection: "column", cursor: "pointer" }} onClick={() => setUserDrawerOpen(true)}>
-                        <Typography.Text strong style={{ color: antdThemeHeader === "dark" ? "white" : "black" }}>Leon San José Larsson</Typography.Text>
-                        <Typography.Text style={{ fontSize: "0.8rem", color: antdThemeHeader === "dark" ? "white" : "black" }}>github.com/leonlarsson</Typography.Text>
+                        <Typography.Text strong style={{ color: themeSettings?.headerTheme === "dark" ? "white" : "black" }}>Leon San José Larsson</Typography.Text>
+                        <Typography.Text style={{ fontSize: "0.8rem", color: themeSettings?.headerTheme === "dark" ? "white" : "black" }}>github.com/leonlarsson</Typography.Text>
                     </div>
                 </div>
 
             </Layout.Header>
 
             <Layout>
-                <Layout.Sider width="250px" collapsible breakpoint="lg" theme={antdThemeMenu ?? "light"} collapsedWidth={60}>
-                    <Nav antdMenuTheme={antdThemeMenu ?? "light"} />
+                <Layout.Sider width="250px" collapsible breakpoint="lg" theme={themeSettings?.menuTheme ?? "light"} collapsedWidth={60}>
+                    <Nav antdMenuTheme={themeSettings?.menuTheme ?? "light"} />
                 </Layout.Sider>
 
                 <Layout.Content style={{ overflow: "auto" }}>
