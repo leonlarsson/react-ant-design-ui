@@ -14,9 +14,9 @@ const ThemeSettings = () => {
 
     return (
         <Space direction="vertical">
-            <Checkbox style={{ userSelect: "none" }} checked={themeSettings.headerTheme === "dark"} onChange={e => handleThemeChange("headerTheme", e.target.checked)}>Dark header</Checkbox>
-            <Checkbox style={{ userSelect: "none" }} checked={themeSettings.menuTheme === "dark"} onChange={e => handleThemeChange("menuTheme", e.target.checked)}>Dark menu</Checkbox>
-            <Checkbox style={{ userSelect: "none" }} checked={themeSettings.globalTheme === "dark"} onChange={e => handleThemeChange("globalTheme", e.target.checked)}>Global dark theme</Checkbox>
+            <Checkbox style={{ userSelect: "none" }} checked={themeSettings?.headerTheme === "dark"} onChange={e => handleThemeChange("headerTheme", e.target.checked)}>Dark header</Checkbox>
+            <Checkbox style={{ userSelect: "none" }} checked={themeSettings?.menuTheme === "dark"} onChange={e => handleThemeChange("menuTheme", e.target.checked)}>Dark menu</Checkbox>
+            <Checkbox style={{ userSelect: "none" }} checked={themeSettings?.globalTheme === "dark"} onChange={e => handleThemeChange("globalTheme", e.target.checked)}>Global dark theme</Checkbox>
         </Space>
     );
 };
