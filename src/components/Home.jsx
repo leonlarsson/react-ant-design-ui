@@ -7,7 +7,9 @@ const Home = () => {
 
   return (
     <Page title="Home" description="Welcome to a React + Ant Design example application." divider={false}>
-      <h6>Created by <a href="https://github.com/leonlarsson" target="_blank">https://github.com/leonlarsson</a> | <a href="https://github.com/leonlarsson/react-ant-design-ui" target="_blank">source</a>.</h6>
+      <Typography.Text>
+        <h6>Created by <a href="https://github.com/leonlarsson" target="_blank">https://github.com/leonlarsson</a> | <a href="https://github.com/leonlarsson/react-ant-design-ui" target="_blank">source</a>.</h6>
+      </Typography.Text>
       <br />
 
       <Typography.Title level={3}>Pages</Typography.Title>
