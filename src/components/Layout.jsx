@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Button, Checkbox, Divider, Drawer, Layout, Space, Typography } from "antd";
-import { handleHeaderThemeChange, handleMenuThemeChange, handleGlobalAntdThemeChange } from "../utils/handleThemeChanges";
+import { Button, Divider, Drawer, Layout, Space, Typography } from "antd";
 import { ThemeContext } from "../App";
 import Nav from "./Nav";
+import ThemeSettings from "./ThemeSettings";
 
 const LayoutComponent = () => {
 
@@ -68,11 +68,7 @@ const Drawers = ({ settingsDrawerOpen, setSettingsDrawerOpen, userDrawerOpen, se
         <Drawer width="auto" title="Settings Panel" onClose={() => setSettingsDrawerOpen(false)} open={settingsDrawerOpen}>
             <Typography.Text>Various application settings can be shown here.</Typography.Text>
             <Divider />
-            <Space direction="vertical">
-                <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("antdThemeHeader") === "dark"} onChange={handleHeaderThemeChange}>Dark header</Checkbox>
-                <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("antdThemeMenu") === "dark"} onChange={handleMenuThemeChange}>Dark menu</Checkbox>
-                <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("globalAntdTheme") === "dark"} onChange={handleGlobalAntdThemeChange}>Global dark theme</Checkbox>
-            </Space>
+            <ThemeSettings />
         </Drawer>
 
         <Drawer width="auto" title="User Panel" onClose={() => setUserDrawerOpen(false)} open={userDrawerOpen} extra={<Button type="primary" danger>Log out</Button>}>

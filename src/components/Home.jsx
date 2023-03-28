@@ -1,7 +1,7 @@
-import { Checkbox, Divider, Space, Typography } from "antd";
+import { Divider, Typography } from "antd";
 import { Link } from "react-router-dom";
 import Page from "./Shared/Page";
-import { handleHeaderThemeChange, handleMenuThemeChange, handleGlobalAntdThemeChange } from "../utils/handleThemeChanges";
+import ThemeSettings from "./ThemeSettings";
 
 const Home = () => {
 
@@ -40,11 +40,7 @@ const Home = () => {
       </Typography.Text>
 
       <Typography.Title level={3}>Theme settings</Typography.Title>
-      <Space direction="vertical">
-        <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("antdThemeHeader") === "dark"} onChange={handleHeaderThemeChange}>Dark header</Checkbox>
-        <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("antdThemeMenu") === "dark"} onChange={handleMenuThemeChange}>Dark menu</Checkbox>
-        <Checkbox style={{ userSelect: "none" }} defaultChecked={localStorage.getItem("globalAntdTheme") === "dark"} onChange={handleGlobalAntdThemeChange}>Global dark theme</Checkbox>
-      </Space>
+      <ThemeSettings />
 
     </Page>
   );
